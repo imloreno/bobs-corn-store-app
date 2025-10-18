@@ -18,9 +18,9 @@ const Feature = ({ label, value }: { label: string; value: string }) => {
 const Stats = () => {
   return (
     <div className="flex gap-9 mt-12 justify-center bg-box py-5">
-      {FEATURE_DATA.map((feature) => (
+      {FEATURE_DATA.map((feature, index) => (
         <Feature
-          key={feature.label}
+          key={feature.label + index}
           label={feature.label}
           value={feature.value}
         />
