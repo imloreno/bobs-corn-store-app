@@ -2,6 +2,7 @@ import PixelPerfectTool from "@components/pixelPerfect/PixelPerfectTool";
 import Menu from "@components/Menu";
 import Header from "@components/Header";
 import Stats from "@components/Stats";
+import Products from "./features/Products";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Menu />
       <Header />
       <Stats />
+      <Products />
     </div>
   );
 };
