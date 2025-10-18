@@ -1,0 +1,14 @@
+services:
+  db:
+    container_name: bobscorn_store_db
+    image: postgres:16-alpine # Using a lightweight Alpine-based PostgreSQL image
+    restart: always
+    env_file:
+      - .env # Load environment variables from a .env file
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Persist data in a named volume
+    ports:
+      - "5555:5432" # Map container port 5432 to host port 5555
+
+volumes:
+  pgdata: {}
