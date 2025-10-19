@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const PixelPerfectTool = () => {
+const PixelPerfectTool = ({ imageUrl }: { imageUrl: string }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [opacity, setOpacity] = useState(0);
 
@@ -28,7 +28,7 @@ const PixelPerfectTool = () => {
       />
       {isChecked && (
         <img
-          src="/temp/Home.png"
+          src={imageUrl}
           className="w-[100vw] fixed top-0 left-0 pointer-events-none -z-10"
           style={{ opacity: opacity / 100 }}
         />

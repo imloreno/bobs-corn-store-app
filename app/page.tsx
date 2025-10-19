@@ -7,7 +7,7 @@ import Products from "@ui/features/Products";
 const Home = () => {
   return (
     <div className="">
-      <PixelPerfectTool />
+      <PixelPerfectTool imageUrl="/temp/Home.png" />
       <Menu />
       <Header />
       <Stats />
