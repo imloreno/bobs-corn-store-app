@@ -1,0 +1,61 @@
+import type { IconName } from "@/app/ui/components/Icon";
+
+export type RegisterField = {
+  name: string;
+  placeholder: string;
+  icon?: IconName;
+  type?: string;
+  defaultValue?: any;
+  validation?: {
+    required?: boolean | string;
+    minLength?: number | { value: number; message?: string };
+    maxLength?: number | { value: number; message?: string };
+    pattern?: RegExp | { value: RegExp; message?: string };
+  };
+};
+
+export const REGISTER_FIELDS: RegisterField[] = [
+  {
+    name: "fullName",
+    placeholder: "Full Name",
+    icon: "USER",
+    type: "text",
+    defaultValue: "",
+    validation: { required: "Full name is required" },
+  },
+  {
+    name: "username",
+    placeholder: "Username",
+    icon: "USERNAME",
+    type: "text",
+    defaultValue: "",
+    validation: {
+      required: "Username is required",
+      minLength: {
+        value: 3,
+        message: "Username must be at least 3 characters",
+      },
+    },
+  },
+  {
+    name: "password",
+    placeholder: "Enter password",
+    icon: "PASSWORD",
+    type: "password",
+    defaultValue: "",
+    validation: {
+      required: "Password is required",
+      minLength: {
+        value: 6,
+        message: "Password must be at least 6 characters",
+      },
+    },
+  },
+];
+
+export const REGISTER_DEFAULT_VALUES = REGISTER_FIELDS.reduce((acc, f) => {
+  acc[f.name] = f.defaultValue ?? "";
+  return acc;
+}, {} as Record<string, any>);
+
+export default REGISTER_FIELDS;

@@ -6,7 +6,7 @@ import Products from "@ui/features/Products";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <PixelPerfectTool imageUrl="/temp/Home.png" />
       <Menu />
       <Header />
