@@ -2,7 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { apiPost } from "@/lib/api";
-import { Button } from "@components/ui/button";
+import { Button } from "@ui/components/shadcn/button";
 
 const LogoutButton = () => {
   const router = useRouter();

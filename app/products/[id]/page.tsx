@@ -3,7 +3,7 @@ import { getProductByIdService } from "@/app/service/products";
 import Header from "@components/Header";
 import Menu from "@components/Menu";
 import { Subtitle, Text } from "@components/Text";
-import { Button } from "@components/ui/button";
+import { Button } from "@ui/components/shadcn/button";
 import Link from "next/link";
 
 type Props = { params: { id: string } };

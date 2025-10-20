@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@components/ui/button";
+import { Button } from "@ui/components/shadcn/button";
 import { Product } from "@ui/types/product";
 import { useCreateOrder } from "@/lib/hooks/useCreateOrder";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,7 @@ interface ConfirmButtonSectionProps {
 
 const ConfirmButtonSection = ({ product }: ConfirmButtonSectionProps) => {
   const router = useRouter();
-  console.log("product:", product);
+
   const {
     mutate: createOrder,
     isPending,
@@ -19,6 +19,13 @@ const ConfirmButtonSection = ({ product }: ConfirmButtonSectionProps) => {
     isError,
     error,
   } = useCreateOrder();
+
+  const buttonMessage = () => {
+    if (isPending) return "PLACING ORDER...";
+    if (isSuccess) return "ORDER PLACED!";
+    if (isError) return "TRY AGAIN";
+    return "CONFIRM ORDER";
+  };
 
   useEffect(() => {
     if (isSuccess) {
@@ -43,20 +50,22 @@ const ConfirmButtonSection = ({ product }: ConfirmButtonSectionProps) => {
         <p className="text-success font-medium">Order placed successfully!</p>
       )}
       {isError && (
-        <p className="text-error font-medium">
+        <p className="text-error font-medium mb-2">
           {error?.message?.includes("Unauthorized")
             ? "Please log in to place an order"
-            : `Error placing your order: ${
-                error?.message || "Please try again"
-              }`}
+            : `${error?.message || "Please try again"}`}
         </p>
       )}
       <Button
-        className="w-60 py-5 bg-background-secondary text-text hover:bg-background-secondary/80"
+        className={`w-60 py-5 bg-${
+          isError ? "error" : "background-secondary"
+        } text-text ${
+          isPending || isSuccess ? "opacity-50 cursor-not-allowed" : ""
+        }`}
         onClick={handleConfirmOrder}
-        disabled={isPending}
+        disabled={isPending || isSuccess}
       >
-        {isPending ? "PLACING ORDER..." : "CONFIRM ORDER"}
+        {buttonMessage()}
       </Button>
     </div>
   );

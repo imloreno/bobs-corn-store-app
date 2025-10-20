@@ -2,6 +2,7 @@ import { getUserFromRequest } from "@server/services/sessionService";
 import { createOrderService } from "@server/services/orderService";
 import { ProductOrderDTO } from "@server/types/dto/order";
 import { NextRequest, NextResponse } from "next/server";
+import { RateLimitError } from "@server/utils/errors";
 
 export const POST = async (request: NextRequest) => {
   try {
@@ -72,6 +73,14 @@ export const POST = async (request: NextRequest) => {
     );
   } catch (error) {
     console.error("Error creating order - Full error:", error);
+
+    if (error instanceof RateLimitError) {
+      console.error("Rate limit error:", error.message);
+      return NextResponse.json(
+        { message: `Rate limit exceeded: ${error.message}` },
+        { status: 429 }
+      );
+    }
 
     if (error instanceof Error) {
       console.error("Error message:", error.message);

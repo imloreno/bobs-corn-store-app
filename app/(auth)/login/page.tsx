@@ -8,11 +8,11 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
-} from "@components/ui/input-group";
+} from "@ui/components/shadcn/input-group";
 import Icon from "@components/Icon";
 import style from "./login.module.css";
 import { Subtitle, Title } from "@components/Text";
-import { Button } from "@components/ui/button";
+import { Button } from "@ui/components/shadcn/button";
 import Link from "next/link";
 
 const Login = () => {
