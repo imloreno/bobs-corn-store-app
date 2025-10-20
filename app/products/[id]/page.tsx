@@ -48,8 +48,8 @@ const ProductDetails = async ({ params }: Props) => {
           </p>
         </div>
         <div className="mt-10">
-          <Subtitle className="mb-2">Description</Subtitle>
-          <p>{product.productDescription}</p>
+          <Subtitle className="mb-3">Description</Subtitle>
+          <p className="px-3">{product.productDescription}</p>
         </div>
         <div className="mt-10">
           <Subtitle className="mb-4">Additional Details</Subtitle>
