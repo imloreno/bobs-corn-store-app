@@ -1,4 +1,4 @@
-import getProductsService from "@/app/service/products";
+import { getProductsService } from "@/app/service/products";
 import Product from "@components/Product";
 import { Subtitle } from "@components/Text";
 import React from "react";

@@ -20,9 +20,9 @@ export const Subtitle = ({ children, className, style }: TextProps) => {
   );
 };
 
-export const Paragraph = ({ children, className, style }: TextProps) => {
+export const Text = ({ children, className, style }: TextProps) => {
   return (
-    <p className={`text-lg ${className}`} style={style}>
+    <p className={`text-[1rem] ${className}`} style={style}>
       {children}
     </p>
   );
