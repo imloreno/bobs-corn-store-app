@@ -28,6 +28,10 @@ A modern e-commerce web application for selling premium corn products. Built wit
 
 Bob's Corn Store is a full-stack e-commerce platform specializing in premium corn kernels. The application provides a seamless shopping experience with user authentication, product browsing, detailed product information, and a secure checkout process with payment confirmation.
 
+![Screenshot](https://raw.githubusercontent.com/imloreno/bobs-corn-store-app/refs/heads/main/snap-screen.png)
+
+### You can access to the design in PDF format [here](https://github.com/imloreno/bobs-corn-store-app/blob/main/figma-design.pdf)
+
 ## ✨ Features
 
 - **User Authentication**
@@ -320,6 +324,8 @@ The application uses Prisma with the following models:
 - **User** - User accounts with authentication
 - **Product** - Corn products with details and pricing
 - **ProductOrder** - Order records linking users and products
+
+![Screenshot](https://raw.githubusercontent.com/imloreno/bobs-corn-store-app/refs/heads/main/database_schema.png)
 
 To view the database schema:
 
