@@ -361,6 +361,9 @@ pnpm prisma generate  # Generate Prisma Client
 pnpm prisma db push   # Push schema changes to database
 pnpm prisma studio    # Open Prisma Studio (database GUI)
 
+# Seed Database (run after db push)
+docker exec -i bobscorn_store_db psql -U user -d bobscorn < prisma/seed.sql
+
 # Docker
 docker-compose up -d  # Start PostgreSQL database
 docker-compose down   # Stop PostgreSQL database

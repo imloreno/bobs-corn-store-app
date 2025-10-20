@@ -30,11 +30,12 @@ const ProductDetails = async ({ params }: Props) => {
           url: product.productImage ?? "",
           alt: product.productName ?? "",
           className:
-            "right-0 w-[60vw] sm:w-[60vw] md:w-[50vw] lg:w-[30rem] xl:w-[35rem] -bottom-50 sm:-bottom-75 md:-bottom-78 lg:-bottom-100",
+            "right-0 w-[60vw] sm:w-[60vw] md:w-[50vw] lg:w-[30rem] xl:w-[35rem] -bottom-55 sm:-bottom-75 md:-bottom-78 lg:-bottom-100",
         }}
         subtitle={
           <Subtitle className="!text-2xl md:!text-4xl lg:!text-5xl text-secondary mt-10">
-            Premium <span className="text-text block">Kernels</span>
+            {product.productName?.replace("Kernels", "")}{" "}
+            <span className="text-text block">Kernels</span>
           </Subtitle>
         }
       />
