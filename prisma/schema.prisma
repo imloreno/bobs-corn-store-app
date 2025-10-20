@@ -43,3 +43,13 @@ model ProductOrder {
 
    @@map("product_order")
 }
+
+model RateLimitLog {
+   id            String   @id @default(uuid())
+   fk_user_id    String
+   fk_product_id String
+   purchased_at  DateTime @default(now())
+
+   @@index([fk_user_id, fk_product_id, purchased_at])
+   @@map("rate_limit_log")
+}

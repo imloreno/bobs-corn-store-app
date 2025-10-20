@@ -5,4 +5,5 @@ export interface ProductOrderDTO {
   unitCost: number;
   quantity: number;
   totalCost: number;
+  productRateLimit: number;
 }

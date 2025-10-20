@@ -3,7 +3,8 @@ import { apiPost } from "@/lib/api";
 
 interface CreateOrderPayload {
   productId?: string;
-  unitCost?: number;
+  productRateLimit: number;
+  unitCost: number;
   quantity: number;
 }
 
@@ -16,6 +17,7 @@ interface CreateOrderResponse {
     unitCost: number;
     quantity: number;
     totalCost: number;
+    productRateLimit: number;
   };
 }
 

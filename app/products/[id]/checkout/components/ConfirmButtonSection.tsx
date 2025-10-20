@@ -11,6 +11,7 @@ interface ConfirmButtonSectionProps {
 
 const ConfirmButtonSection = ({ product }: ConfirmButtonSectionProps) => {
   const router = useRouter();
+  console.log("product:", product);
   const {
     mutate: createOrder,
     isPending,
@@ -31,7 +32,8 @@ const ConfirmButtonSection = ({ product }: ConfirmButtonSectionProps) => {
     await createOrder({
       productId: product.productId,
       unitCost: product.productPrice || 0,
-      quantity: 1,
+      quantity: 1, // TODO: Make this dynamic
+      productRateLimit: product.productRateLimit,
     });
   };
 

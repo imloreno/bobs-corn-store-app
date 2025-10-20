@@ -8,5 +8,5 @@ export interface Product {
     label: string;
   }[];
   productPrice?: number;
-  productRateLimit?: number;
+  productRateLimit: number;
 }

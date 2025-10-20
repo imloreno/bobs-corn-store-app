@@ -25,9 +25,17 @@ export const POST = async (request: NextRequest) => {
     console.log("Order data:", orderData);
 
     // Validate required fields
-    if (!orderData.productId || !orderData.unitCost || !orderData.quantity) {
+    if (
+      !orderData.productId ||
+      !orderData.unitCost ||
+      !orderData.quantity ||
+      !orderData.productRateLimit
+    ) {
       return NextResponse.json(
-        { message: "Missing required fields: productId, unitCost, quantity" },
+        {
+          message:
+            "Missing required fields: productId, unitCost, quantity or productRateLimit",
+        },
         { status: 400 }
       );
     }
@@ -38,6 +46,7 @@ export const POST = async (request: NextRequest) => {
     // Use the userId from the authenticated session, NOT from request body
     const productOrderDTO: ProductOrderDTO = {
       userId: user.id, // From session cookie - secure
+      productRateLimit: orderData.productRateLimit,
       productId: orderData.productId,
       unitCost: orderData.unitCost,
       quantity: orderData.quantity,
