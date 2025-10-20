@@ -124,10 +124,14 @@ Before you begin, ensure you have the following installed:
    docker-compose up -d
    ```
 
-5. **Run Prisma migrations**
+5. **Run Prisma Push**
 
    ```bash
-   pnpm prisma migrate dev
+   pnpm prisma db push
+   ```
+
+   ```bash
+   pnpm prisma studio
    ```
 
 6. **Generate Prisma Client**

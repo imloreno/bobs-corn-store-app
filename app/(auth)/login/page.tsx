@@ -13,6 +13,7 @@ import Icon from "@components/Icon";
 import style from "./login.module.css";
 import { Subtitle, Title } from "@components/Text";
 import { Button } from "@components/ui/button";
+import Link from "next/link";
 
 const Login = () => {
   const {
@@ -66,7 +67,13 @@ const Login = () => {
               )}
             </InputGroup>
           ))}
-          <Button type="submit" size="lg" className="w-fit mt-2">
+          <Link
+            className="text-right text-text underline font-medium"
+            href="/register"
+          >
+            Register
+          </Link>
+          <Button type="submit" size="lg" className="w-fit">
             <Icon icon="ENTER" /> Login
           </Button>
         </form>

@@ -38,8 +38,8 @@ model ProductOrder {
    fk_product_order_id String
    product             Product @relation(fields: [fk_product_order_id], references: [id])
    unit_cost           Float
+   quantity            Int
    total               Float
-   confirmed           Boolean @default(false)
 
    @@map("product_order")
 }

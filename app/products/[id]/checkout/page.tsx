@@ -5,8 +5,7 @@ import Menu from "@components/Menu";
 import { Subtitle } from "@components/Text";
 import React from "react";
 import OrderDetails from "./components/OrderDetails";
-import Link from "next/link";
-import { Button } from "@components/ui/button";
+import ConfirmButtonSection from "./components/ConfirmButtonSection";
 
 const CheckoutPage = async ({ params }: { params: { id: string } }) => {
   const { id } = await params;
@@ -32,7 +31,7 @@ const CheckoutPage = async ({ params }: { params: { id: string } }) => {
           </Subtitle>
         }
       />
-      <section className="px-5">
+      <section className="px-5 mb-10">
         <div className="mt-4">
           <p className="text-2xl font-[1000]">
             Order <br /> Confirmation
@@ -42,11 +41,7 @@ const CheckoutPage = async ({ params }: { params: { id: string } }) => {
         <OrderDetails product={product} className="mt-6" />
       </section>
 
-      <Link href={`/products/${id}/checkout/success`}>
-        <Button className="w-60 my-10 mx-6 py-5 bg-background-secondary text-text">
-          CONFIRM ORDER
-        </Button>
-      </Link>
+      <ConfirmButtonSection product={product} />
     </div>
   );
 };

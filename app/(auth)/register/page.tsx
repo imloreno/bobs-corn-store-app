@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import style from "./register.module.css";
 import { Subtitle, Title } from "@components/Text";
 import {
@@ -14,24 +14,23 @@ import { apiPost } from "@/lib/api";
 import REGISTER_FIELDS, {
   REGISTER_DEFAULT_VALUES,
 } from "@/app/(auth)/register/constants/registerForm";
-
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 const Register = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ defaultValues: REGISTER_DEFAULT_VALUES });
 
-  const onSubmit = (data: any) => {
-    (async () => {
-      try {
-        const resp = await apiPost("/auth/register", data);
-        alert("Registration successful");
-      } catch (err: any) {
-        console.error("register error", err);
-        alert(err?.message || "Registration failed");
-      }
-    })();
+  const onSubmit = async (data: any) => {
+    try {
+      await apiPost("/auth/register", data);
+      router.push("/login");
+    } catch (err: any) {
+      console.error("register error", err);
+    }
   };
 
   return (
@@ -66,8 +65,14 @@ const Register = () => {
               )}
             </InputGroup>
           ))}
+          <Link
+            className="text-right text-text underline font-medium"
+            href="/login"
+          >
+            Login
+          </Link>
 
-          <Button type="submit" size="lg" className="w-fit mt-2">
+          <Button type="submit" size="lg" className="w-fit">
             <Icon icon="ENTER" /> Register
           </Button>
         </form>

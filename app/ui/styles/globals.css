@@ -10,6 +10,7 @@
   --secondary-color: #f39f5e;
   --highlight-color: #8fd07d;
   --success-color: #30a46a;
+  --error-color: #ff0000;
   --text-color: #ffffff;
   --smooth-color: rgba(0, 0, 0, 0.5);
   --box-color: #f3f3f3;
@@ -59,6 +60,7 @@
   --color-text: var(--text-color);
   --color-smooth: var(--smooth-color);
   --color-success: var(--success-color);
+  --color-error: var(--error-color);
   --color-box: var(--box-color);
   --color-background-secondary: var(--background-secondary-color);
 }
