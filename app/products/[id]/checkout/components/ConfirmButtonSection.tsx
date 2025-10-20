@@ -57,8 +57,8 @@ const ConfirmButtonSection = ({ product }: ConfirmButtonSectionProps) => {
         </p>
       )}
       <Button
-        className={`w-60 py-5 bg-${
-          isError ? "error" : "background-secondary"
+        className={`w-60 py-5 ${
+          isError ? "bg-error" : "bg-background-secondary"
         } text-text ${
           isPending || isSuccess ? "opacity-50 cursor-not-allowed" : ""
         }`}

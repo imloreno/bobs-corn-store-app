@@ -22,23 +22,23 @@ const ProductDetails = async ({ params }: Props) => {
     return <div>Product not found</div>;
   }
 
-  console.log(product.productImage);
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
       <Menu />
       <Header
         image={{
           url: product.productImage ?? "",
           alt: product.productName ?? "",
-          className: "-bottom-35 right-0 w-[55vw]",
+          className:
+            "right-0 w-[60vw] sm:w-[60vw] md:w-[50vw] lg:w-[30rem] xl:w-[35rem] -bottom-50 sm:-bottom-75 md:-bottom-78 lg:-bottom-100",
         }}
         subtitle={
-          <Subtitle className="!text-2xl text-secondary mt-10">
+          <Subtitle className="!text-2xl md:!text-4xl lg:!text-5xl text-secondary mt-10">
             Premium <span className="text-text block">Kernels</span>
           </Subtitle>
         }
       />
-      <section className="px-5">
+      <section className="px-5 max-w-[1440px] mx-auto">
         <div className="mt-4">
           <p className="text-sm font-bold tracking-tighter leading-2 text-smooth">
             fees included
@@ -47,7 +47,7 @@ const ProductDetails = async ({ params }: Props) => {
             ${product.productPrice?.toFixed(2)}
           </p>
         </div>
-        <div className="mt-10">
+        <div className="mt-10 max-w-[600px]">
           <Subtitle className="mb-3">Description</Subtitle>
           <p className="px-3">{product.productDescription}</p>
         </div>
@@ -66,12 +66,12 @@ const ProductDetails = async ({ params }: Props) => {
             )}
           </ul>
         </div>
+        <Link href={`/products/${id}/checkout`}>
+          <Button className="w-60 my-10 py-5 bg-background-secondary">
+            BUY ${product.productPrice?.toFixed(2)}
+          </Button>
+        </Link>
       </section>
-      <Link href={`/products/${id}/checkout`}>
-        <Button className="w-60 my-10 mx-10 py-5 bg-background-secondary">
-          BUY ${product.productPrice?.toFixed(2)}
-        </Button>
-      </Link>
     </div>
   );
 };

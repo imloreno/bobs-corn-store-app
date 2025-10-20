@@ -18,7 +18,10 @@ const LogoutButton = () => {
 
   return (
     <div className="text-right">
-      <Button className="w-fit bg-background-secondary" onClick={handleLogout}>
+      <Button
+        className="w-fit bg-background-secondary hover:bg-background-secondary/80 cursor-pointer"
+        onClick={handleLogout}
+      >
         Logout
       </Button>
     </div>

@@ -19,14 +19,7 @@ const Products = async ({ error }: { error: Error }) => {
       <Subtitle className="mb-4">Our products</Subtitle>
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product) => (
-          <Product
-            key={product.productId}
-            productId={product.productId}
-            productName={product.productName}
-            productImage={product.productImage}
-            productPrice={product.productPrice}
-            productDescription={product.productDescription}
-          />
+          <Product key={product.productId} {...product} />
         ))}
       </div>
     </section>

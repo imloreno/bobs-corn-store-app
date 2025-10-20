@@ -22,7 +22,7 @@ const OrderDetails = ({ product, className, style }: OrderDetailsProps) => {
   };
 
   return (
-    <div className={`px-1 ${className}`} style={style}>
+    <div className={`px-1 max-w-[600px] ${className}`} style={style}>
       <Subtitle className="mb-6">Order details</Subtitle>
 
       <div className="space-y-4">

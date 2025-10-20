@@ -3,7 +3,7 @@ import { Customizable } from "@ui/types/text";
 const DebitCard = ({ className, style }: Customizable) => {
   return (
     <div
-      className={`bg-box rounded-xl border border-secondary-background p-3 mx-auto shadow-sm ${className}`}
+      className={`max-w-150 bg-box rounded-xl border border-secondary-background p-3 shadow-sm ${className}`}
       style={style}
     >
       <div className="flex items-center justify-between mb-3 gap-6">
