@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import style from "./register.module.css";
-import PixelPerfectTool from "@components/pixelPerfect/PixelPerfectTool";
 import { Subtitle, Title } from "@components/Text";
 import {
   InputGroup,
@@ -11,9 +10,10 @@ import {
 import Icon from "@components/Icon";
 import { Button } from "@components/ui/button";
 import { useForm } from "react-hook-form";
+import { apiPost } from "@/lib/api";
 import REGISTER_FIELDS, {
   REGISTER_DEFAULT_VALUES,
-} from "@/app/register/constants/registerForm";
+} from "@/app/(auth)/register/constants/registerForm";
 
 const Register = () => {
   const {
@@ -23,13 +23,20 @@ const Register = () => {
   } = useForm({ defaultValues: REGISTER_DEFAULT_VALUES });
 
   const onSubmit = (data: any) => {
-    // TODO: wire up submission to backend/service
-    console.log("register form submit:", data);
+    // Example: send registration to backend using apiPost
+    (async () => {
+      try {
+        const resp = await apiPost("/auth/register", data);
+        alert("Registration successful");
+      } catch (err: any) {
+        console.error("register error", err);
+        alert(err?.message || "Registration failed");
+      }
+    })();
   };
 
   return (
     <div className={`${style.background}`}>
-      <PixelPerfectTool imageUrl="/temp/Register.png" />
       <div className="mt-10  mx-9">
         <Title className="text-5xl font-bold text-primary">Hello!</Title>
         <Subtitle className="mt-8 !text-2xl leading-none">
