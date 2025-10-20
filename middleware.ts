@@ -14,7 +14,8 @@ function isStaticAsset(pathname: string) {
     pathname.startsWith("/_next") ||
     pathname.startsWith("/static") ||
     pathname.startsWith("/public") ||
-    pathname === "/favicon.ico"
+    pathname === "/favicon.ico" ||
+    pathname === "/corns.png"
   );
 }
 

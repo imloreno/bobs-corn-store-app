@@ -6,6 +6,7 @@
 :root {
   --primary-color: #295429;
   --background-color: #ffffff;
+  --background-secondary-color: #000000;
   --secondary-color: #f39f5e;
   --highlight-color: #8fd07d;
   --text-color: #ffffff;
@@ -57,6 +58,7 @@
   --color-text: var(--text-color);
   --color-smooth: var(--smooth-color);
   --color-box: var(--box-color);
+  --color-background-secondary: var(--background-secondary-color);
 }
 
 /* @media (prefers-color-scheme: dark) {

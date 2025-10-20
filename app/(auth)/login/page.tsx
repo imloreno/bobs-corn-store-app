@@ -1,37 +1,37 @@
 "use client";
 import React from "react";
-import style from "./register.module.css";
-import { Subtitle, Title } from "@components/Text";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
+import { apiPost } from "@/lib/api";
+import LOGIN_FIELDS, { LOGIN_DEFAULT_VALUES } from "./constants/loginForm";
 import {
   InputGroup,
   InputGroupAddon,
   InputGroupInput,
 } from "@components/ui/input-group";
 import Icon from "@components/Icon";
+import style from "./login.module.css";
+import { Subtitle, Title } from "@components/Text";
 import { Button } from "@components/ui/button";
-import { useForm } from "react-hook-form";
-import { apiPost } from "@/lib/api";
-import REGISTER_FIELDS, {
-  REGISTER_DEFAULT_VALUES,
-} from "@/app/(auth)/register/constants/registerForm";
 
-const Register = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues: REGISTER_DEFAULT_VALUES });
+  } = useForm({
+    defaultValues: LOGIN_DEFAULT_VALUES,
+  });
+  const router = useRouter();
 
-  const onSubmit = (data: any) => {
-    (async () => {
-      try {
-        const resp = await apiPost("/auth/register", data);
-        alert("Registration successful");
-      } catch (err: any) {
-        console.error("register error", err);
-        alert(err?.message || "Registration failed");
-      }
-    })();
+  const onSubmit = async (data: any) => {
+    try {
+      await apiPost("/auth/login", data);
+      router.push("/");
+    } catch (err: any) {
+      console.error("login error", err);
+      alert(err?.message || "Login failed");
+    }
   };
 
   return (
@@ -47,9 +47,9 @@ const Register = () => {
           alt="Bob's corn store - register page"
           className="h-70 rotate-20 ml-18"
         />
-        <Subtitle className="mb-5 text-xl !text-primary">Register</Subtitle>
+        <Subtitle className="mb-5 text-xl !text-primary">Login</Subtitle>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
-          {REGISTER_FIELDS.map((field) => (
+          {LOGIN_FIELDS.map((field) => (
             <InputGroup key={field.name}>
               <InputGroupInput
                 {...register(field.name, field.validation as any)}
@@ -66,9 +66,8 @@ const Register = () => {
               )}
             </InputGroup>
           ))}
-
           <Button type="submit" size="lg" className="w-fit mt-2">
-            <Icon icon="ENTER" /> Register
+            <Icon icon="ENTER" /> Login
           </Button>
         </form>
       </div>
@@ -76,4 +75,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
