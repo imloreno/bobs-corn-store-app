@@ -1,0 +1,11 @@
+.container {
+  &:hover {
+    .productImage {
+      transform: scale(1.05) rotate(1deg);
+    }
+  }
+}
+
+.productImage {
+  transition: transform 0.1s ease-in;
+}
